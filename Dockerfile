@@ -9,5 +9,6 @@ RUN npm run build
 FROM nginx:stable-alpine as production-stage
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY default.conf.template /etc/nginx/conf.d/default.conf.template
-COPY --from=build-stage /app/dist /usr/share/nginx/html
+# FIXME: problem with Parcel here? SRC is being uploaded to heroku for some reason, was app/dist
+COPY --from=build-stage dist/ /usr/share/nginx/html
 CMD /bin/sh -c "envsubst '\$PORT' < /etc/nginx/conf.d/default.conf.template > /etc/nginx/conf.d/default.conf" && nginx -g 'daemon off;'
