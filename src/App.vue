@@ -6,12 +6,12 @@
 </template>
 
 <script>
-import Gif from "./components/Gif.vue";
+import Gif from './components/Gif.vue';
 export default {
-  name: "app",
+  name: 'App',
   data() {
     return {
-      msg: "Hurray! ParcelJS Zero Config Vue app is running!",
+      msg: 'Hurray! ParcelJS Zero Config Vue app is running!',
     };
   },
   components: {
